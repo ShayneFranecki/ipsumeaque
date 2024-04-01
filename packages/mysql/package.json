@@ -1,0 +1,76 @@
+{
+  "name": "@sqlfx/mysql",
+  "version": "0.22.0",
+  "description": "",
+  "main": "dist/sqlfx-mysql.cjs.js",
+  "module": "dist/sqlfx-mysql.esm.js",
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/tim-smart/sqlfx.git"
+  },
+  "author": "Tim Smart <hello@timsmart.co>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/tim-smart/sqlfx/issues"
+  },
+  "homepage": "https://github.com/tim-smart/sqlfx",
+  "preconstruct": {
+    "entrypoints": [
+      "*.ts"
+    ],
+    "distFilenameStrategy": "full",
+    "exports": {
+      "importConditionDefaultExport": "default"
+    }
+  },
+  "scripts": {
+    "example": "ts-node --project tsconfig.examples.json",
+    "lint": "eslint --ext .ts,.tsx src/**/* test/**/*",
+    "docs": "docgen",
+    "tc": "tsc --noEmit",
+    "test": "vitest",
+    "coverage": "vitest run --coverage"
+  },
+  "keywords": [],
+  "dependencies": {
+    "@sqlfx/sql": "workspace:^",
+    "mariadb": "^3.2.1"
+  },
+  "devDependencies": {
+    "@effect/schema": "^0.41.0",
+    "effect": "2.0.0-next.46"
+  },
+  "peerDependencies": {
+    "effect": "2.0.0-next.46"
+  },
+  "files": [
+    "src",
+    "dist",
+    "Error",
+    "Migrator"
+  ],
+  "exports": {
+    ".": {
+      "types": "./dist/declarations/src/index.d.ts",
+      "module": "./dist/sqlfx-mysql.esm.js",
+      "import": "./dist/sqlfx-mysql.cjs.mjs",
+      "default": "./dist/sqlfx-mysql.cjs.js"
+    },
+    "./package.json": "./package.json",
+    "./Error": {
+      "types": "./dist/declarations/src/Error.d.ts",
+      "module": "./Error/dist/sqlfx-mysql-Error.esm.js",
+      "import": "./Error/dist/sqlfx-mysql-Error.cjs.mjs",
+      "default": "./Error/dist/sqlfx-mysql-Error.cjs.js"
+    },
+    "./Migrator": {
+      "types": "./dist/declarations/src/Migrator.d.ts",
+      "module": "./Migrator/dist/sqlfx-mysql-Migrator.esm.js",
+      "import": "./Migrator/dist/sqlfx-mysql-Migrator.cjs.mjs",
+      "default": "./Migrator/dist/sqlfx-mysql-Migrator.cjs.js"
+    }
+  }
+}

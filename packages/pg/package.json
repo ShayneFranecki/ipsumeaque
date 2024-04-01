@@ -1,0 +1,77 @@
+{
+  "name": "@sqlfx/pg",
+  "version": "0.23.0",
+  "description": "",
+  "main": "dist/sqlfx-pg.cjs.js",
+  "module": "dist/sqlfx-pg.esm.js",
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/tim-smart/sqlfx.git"
+  },
+  "author": "Tim Smart <hello@timsmart.co>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/tim-smart/sqlfx/issues"
+  },
+  "homepage": "https://github.com/tim-smart/sqlfx",
+  "preconstruct": {
+    "entrypoints": [
+      "*.ts"
+    ],
+    "distFilenameStrategy": "full",
+    "exports": {
+      "importConditionDefaultExport": "default"
+    }
+  },
+  "scripts": {
+    "example": "ts-node --project tsconfig.examples.json",
+    "lint": "eslint --ext .ts,.tsx src/**/* test/**/*",
+    "docs": "docgen",
+    "tc": "tsc --noEmit",
+    "test": "vitest",
+    "coverage": "vitest run --coverage"
+  },
+  "keywords": [],
+  "dependencies": {
+    "@sqlfx/sql": "workspace:^",
+    "postgres": "^3.3.5"
+  },
+  "devDependencies": {
+    "@effect/schema": "^0.41.0",
+    "@sqlfx/sql": "workspace:^",
+    "effect": "2.0.0-next.46"
+  },
+  "peerDependencies": {
+    "effect": "2.0.0-next.46"
+  },
+  "files": [
+    "src",
+    "dist",
+    "Error",
+    "Migrator"
+  ],
+  "exports": {
+    ".": {
+      "types": "./dist/declarations/src/index.d.ts",
+      "module": "./dist/sqlfx-pg.esm.js",
+      "import": "./dist/sqlfx-pg.cjs.mjs",
+      "default": "./dist/sqlfx-pg.cjs.js"
+    },
+    "./package.json": "./package.json",
+    "./Error": {
+      "types": "./dist/declarations/src/Error.d.ts",
+      "module": "./Error/dist/sqlfx-pg-Error.esm.js",
+      "import": "./Error/dist/sqlfx-pg-Error.cjs.mjs",
+      "default": "./Error/dist/sqlfx-pg-Error.cjs.js"
+    },
+    "./Migrator": {
+      "types": "./dist/declarations/src/Migrator.d.ts",
+      "module": "./Migrator/dist/sqlfx-pg-Migrator.esm.js",
+      "import": "./Migrator/dist/sqlfx-pg-Migrator.cjs.mjs",
+      "default": "./Migrator/dist/sqlfx-pg-Migrator.cjs.js"
+    }
+  }
+}

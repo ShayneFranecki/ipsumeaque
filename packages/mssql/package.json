@@ -1,0 +1,84 @@
+{
+  "name": "@sqlfx/mssql",
+  "version": "0.22.0",
+  "description": "",
+  "main": "dist/sqlfx-mssql.cjs.js",
+  "module": "dist/sqlfx-mssql.esm.js",
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/tim-smart/sqlfx.git"
+  },
+  "author": "Yuval Datner <contact@datner.me>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/tim-smart/sqlfx/issues"
+  },
+  "homepage": "https://github.com/tim-smart/sqlfx",
+  "preconstruct": {
+    "entrypoints": [
+      "*.ts"
+    ],
+    "distFilenameStrategy": "full",
+    "exports": {
+      "importConditionDefaultExport": "default"
+    }
+  },
+  "scripts": {
+    "example": "ts-node --project tsconfig.examples.json",
+    "lint": "eslint --ext .ts,.tsx src/**/* test/**/*",
+    "docs": "docgen",
+    "tc": "tsc --noEmit",
+    "test": "vitest",
+    "coverage": "vitest run --coverage"
+  },
+  "keywords": [],
+  "dependencies": {
+    "@sqlfx/sql": "workspace:^",
+    "tedious": "^16.4.1"
+  },
+  "devDependencies": {
+    "@effect/schema": "^0.41.0",
+    "@types/tedious": "^4.0.12",
+    "effect": "2.0.0-next.46"
+  },
+  "peerDependencies": {
+    "effect": "2.0.0-next.46"
+  },
+  "files": [
+    "src",
+    "dist",
+    "Error",
+    "Parameter",
+    "Procedure"
+  ],
+  "exports": {
+    ".": {
+      "types": "./dist/declarations/src/index.d.ts",
+      "module": "./dist/sqlfx-mssql.esm.js",
+      "import": "./dist/sqlfx-mssql.cjs.mjs",
+      "default": "./dist/sqlfx-mssql.cjs.js"
+    },
+    "./package.json": "./package.json",
+    "./Error": {
+      "types": "./dist/declarations/src/Error.d.ts",
+      "module": "./Error/dist/sqlfx-mssql-Error.esm.js",
+      "import": "./Error/dist/sqlfx-mssql-Error.cjs.mjs",
+      "default": "./Error/dist/sqlfx-mssql-Error.cjs.js"
+    },
+    "./Parameter": {
+      "types": "./dist/declarations/src/Parameter.d.ts",
+      "module": "./Parameter/dist/sqlfx-mssql-Parameter.esm.js",
+      "import": "./Parameter/dist/sqlfx-mssql-Parameter.cjs.mjs",
+      "default": "./Parameter/dist/sqlfx-mssql-Parameter.cjs.js"
+    },
+    "./Procedure": {
+      "types": "./dist/declarations/src/Procedure.d.ts",
+      "module": "./Procedure/dist/sqlfx-mssql-Procedure.esm.js",
+      "import": "./Procedure/dist/sqlfx-mssql-Procedure.cjs.mjs",
+      "default": "./Procedure/dist/sqlfx-mssql-Procedure.cjs.js"
+    }
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "extends": "./tsconfig.base.json",
+  "references": [
+    { "path": "packages/sql" },
+    { "path": "packages/pg" },
+    { "path": "packages/mssql" },
+    { "path": "packages/mysql" },
+    { "path": "packages/sqlite" }
+  ]
+}
